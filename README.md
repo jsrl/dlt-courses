@@ -6,4 +6,4 @@
 [DLT Advanced - 2025](https://github.com/dlt-hub/dlthub-education/tree/main/courses/dlt_advanced_2025)
 
 
-![dltHub](images/dlthub.png)
+![dltHub](docs/dlthub.png)
