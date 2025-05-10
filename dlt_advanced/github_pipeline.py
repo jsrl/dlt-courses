@@ -2,19 +2,6 @@ import dlt
 from dlt.sources.helpers.rest_client import RESTClient
 from dlt.sources.rest_api import RESTAPIConfig, rest_api_resources
 from dlt.sources.helpers.rest_client.paginators import HeaderLinkPaginator
-import os
-
-# Extraction. Number of parallel threads with parrallelized = True
-os.environ['EXTRACT__WORKERS'] = '3'
-# Extraction. Enable file rotation by setting a file size limit. By default all records to one file.
-os.environ["EXTRACT__DATA_WRITER__FILE_MAX_ITEMS"] = "50000"
-# Extraction. Control buffer size. By default 5000
-os.environ['DATA_WRITER__BUFFER_MAX_ITEMS'] = '10000'
-# Normalization. Enable parallelism: Use multiple processes
-os.environ['NORMALIZE__WORKERS'] = '3'
-# Loading. Control the number of threads
-os.environ["LOAD__WORKERS"] = "3"
-
 
 
 @dlt.source
@@ -34,21 +21,20 @@ def jaffle_source():
                     "page_size": 2000,
                 }
             },
+            "primary_key": "id"
         },
         "resources": [
             {
                 "name": "orders",
                 "endpoint": {
                     "path": "orders"
-                },
-                "primary_key": "id"
+                }                
             },
             {
                 "name": "customers",
                 "endpoint": {
                     "path": "customers",
-                },
-                "primary_key": "id"
+                }
             },
             {
                 "name": "products",
