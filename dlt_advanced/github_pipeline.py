@@ -51,7 +51,7 @@ pipeline = dlt.pipeline(
     pipeline_name="extract_jaffle_example1",
     destination="duckdb",
     dataset_name="mydata",
-    dev_mode=True,
+    #dev_mode=True,
 )
 
 load_info = pipeline.run(jaffle_source())
